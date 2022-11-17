@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login
+  namespace: qaq
+spec:
+  selector:
+    matchLabels:
+      app: login
+  template:
+    metadata:
+      labels:
+        app: login
+    spec:
+      containers:
+      - name: login
+        image: blacklee123/login:1.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 7777
+          protocol: TCP
+        command:
+        - ./login
+        - --port=7777
+        - --level=info
+        - --config=application.yaml
+        env:
+        - name: LOGIN_CLIENTID
+          value: "your feishu app clientid"
+        - name: LOGIN_SECRETS
+          value: "your feishu app sercrets"
+        volumeMounts:
+          - mountPath: /home/app/config/application.yaml
+            name: config-volume
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi
+      volumes:
+      - name: config-volume
+        configMap:
+          name: login-config

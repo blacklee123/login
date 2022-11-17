@@ -1,0 +1,41 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/web/login": {
+            "get": {
+                "description": "Login",
+                "summary": "Login",
+                "responses": {
+                    "302": {
+                        "description": "Found"
+                    }
+                }
+            }
+        },
+        "/web/login/callback": {
+            "get": {
+                "description": "Login",
+                "summary": "LoginCallBack",
+                "responses": {
+                    "302": {
+                        "description": "Found"
+                    }
+                }
+            }
+        },
+        "/web/logout": {
+            "get": {
+                "description": "LoginOut",
+                "summary": "LoginOut",
+                "responses": {
+                    "302": {
+                        "description": "Found"
+                    }
+                }
+            }
+        }
+    }
+}

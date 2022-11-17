@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: login-config
+  namespace: qaq
+data:
+  application.yaml: |+
+    token:
+      auth_exp_d: 10
+    rsa:
+      public_key: |-
+        -----BEGIN PUBLIC KEY-----
+        MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDCV6d+r0W/cPtebqzzkDlOEL6g
+        NI6z5hhTJaUnfSHhVpgeoj8SJ4aNiRnRZLtk6vUxDYoPTYU5SXMxRXiQqIItEr74
+        hbJ+O4ylWKiIMdiW3RXuTUxsNo62ceba/NvLCWsFRgytwXHR3bvVF+hDi24woKRP
+        EJYYKs33ABi7yY0NGwIDAQAB
+        -----END PUBLIC KEY-----
+      private_key: |-
+        -----BEGIN RSA PRIVATE KEY-----
+        MIICXwIBAAKBgQDCV6d+r0W/cPtebqzzkDlOEL6gNI6z5hhTJaUnfSHhVpgeoj8S
+        J4aNiRnRZLtk6vUxDYoPTYU5SXMxRXiQqIItEr74hbJ+O4ylWKiIMdiW3RXuTUxs
+        No62ceba/NvLCWsFRgytwXHR3bvVF+hDi24woKRPEJYYKs33ABi7yY0NGwIDAQAB
+        AoGBAJDh/BKr5FmWhy+dXv6tdKtIPHT++awQS+4g0IEh/pIZloqv9kk4gk0d+stq
+        R3Iy39xT9ar25e0RXvlKi1l85p4a8sEDE/aPMKX/fdq6tZ7uoNWTobRI4OAKDlSq
+        Owkveis+vox8O6B1sANvcCROon2ejlJ6VVCaaQtevXn8z7WRAkEA5faiIZjXwj2S
+        p0N3qB9K1kGbkniE6Z3BpvXtnFREwVKjZMQ0w+7QJYNU9oPpVNYLIyx+HHv9Pkk8
+        Ki43DsGb1wJBANhYkKApp3aeravaG3cJjLmQ/gXVC9QZCPCMsEIxeJ/U7ElVaH3f
+        aPSMPt4wrhir7hybk6q3V8dnCFIvrakWEF0CQQCiEcv6Oan170coMthl2If5sItg
+        Eyg5LUGJ1dD8WDeMuB0Hq3A0ll6D0adThWwwqhl3VKgckxXLi/mnEKMk9zZJAkEA
+        ukyRxgn4ljIQVaNM8VW84/MSfA040Vz5kMNl6KpXODOPgZrVj0b6R1QZsxXyZXZw
+        ZhwmreSR5zk3NiaugaNpVQJBANAPOrYz8WaapjMM4XKlPIGLi+NypWn2avPK/nKJ
+        0q9YTbyOpfQXaKAhlIvfveF9b7CXgCLuOeA3VopN/ZeNe68=
+        -----END RSA PRIVATE KEY-----
+
+    github:
+      url:
+        authorize: https://github.com/login/oauth/authorize?client_id=%s&redirect_uri=%s
+        accesstoken: https://github.com/login/oauth/access_token?client_id=%s&client_secret=%s&code=%s
+        user: https://api.github.com/user

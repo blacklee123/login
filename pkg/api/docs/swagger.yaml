@@ -1,0 +1,25 @@
+info:
+  contact: {}
+paths:
+  /web/login:
+    get:
+      description: Login
+      responses:
+        "302":
+          description: Found
+      summary: Login
+  /web/login/callback:
+    get:
+      description: Login
+      responses:
+        "302":
+          description: Found
+      summary: LoginCallBack
+  /web/logout:
+    get:
+      description: LoginOut
+      responses:
+        "302":
+          description: Found
+      summary: LoginOut
+swagger: "2.0"
