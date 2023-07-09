@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/BlackLee123/handlers_gin"
+	_ "github.com/blacklee123/login/pkg/api/docs"
 	"github.com/gin-gonic/gin"
-	_ "github.com/qaq-public/login/pkg/api/docs"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 

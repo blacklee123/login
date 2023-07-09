@@ -1,8 +1,8 @@
 package api
 
 import (
+	"github.com/blacklee123/login/pkg/version"
 	"github.com/gin-gonic/gin"
-	"github.com/qaq-public/login/pkg/version"
 )
 
 func versionMiddleware() gin.HandlerFunc {

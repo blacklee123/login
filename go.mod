@@ -1,4 +1,4 @@
-module github.com/qaq-public/login
+module github.com/blacklee123/login
 
 go 1.19
 

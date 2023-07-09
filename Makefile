@@ -11,17 +11,17 @@ VERSION:=$(shell grep 'VERSION' pkg/version/version.go | awk '{ print $$4 }' | t
 EXTRA_RUN_ARGS?=
 
 run:
-	go run -ldflags "-s -w -X github.com/qaq-public/login/pkg/version.REVISION=$(GIT_COMMIT)" main.go $(EXTRA_RUN_ARGS)
+	go run -ldflags "-s -w -X github.com/blacklee123/login/pkg/version.REVISION=$(GIT_COMMIT)" main.go $(EXTRA_RUN_ARGS)
 
 .PHONY: test
 test:
 	go test ./... -coverprofile cover.out
 
 build:
-	GIT_COMMIT=$$(git rev-list -1 HEAD) && CGO_ENABLED=0 go build  -ldflags "-s -w -X github.com/qaq-public/login/pkg/version.REVISION=$(GIT_COMMIT)" -a
+	GIT_COMMIT=$$(git rev-list -1 HEAD) && CGO_ENABLED=0 go build  -ldflags "-s -w -X github.com/blacklee123/login/pkg/version.REVISION=$(GIT_COMMIT)" -a
 
 build-linux:
-	GIT_COMMIT=$$(git rev-list -1 HEAD) && GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build  -ldflags "-s -w -X github.com/qaq-public/login/pkg/version.REVISION=$(GIT_COMMIT)" -a -o ./bin/login ./cmd/login/main.go
+	GIT_COMMIT=$$(git rev-list -1 HEAD) && GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build  -ldflags "-s -w -X github.com/blacklee123/login/pkg/version.REVISION=$(GIT_COMMIT)" -a -o ./bin/login ./cmd/login/main.go
 
 tidy:
 	rm -f go.sum; go mod tidy -compat=1.19

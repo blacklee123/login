@@ -7,14 +7,14 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/qaq-public/login/pkg/version"
+	"github.com/blacklee123/login/pkg/version"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/qaq-public/login/pkg/api"
-	"github.com/qaq-public/login/pkg/signals"
+	"github.com/blacklee123/login/pkg/api"
+	"github.com/blacklee123/login/pkg/signals"
 )
 
 func main() {
