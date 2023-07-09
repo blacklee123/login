@@ -24,6 +24,7 @@ func main() {
 	fs.String("level", "info", "log level debug, info, warn, error, fatal or panic")
 	fs.String("config-path", "config", "config dir path")
 	fs.String("config", "application.yaml", "config file name")
+	fs.String("ui-path", "./ui", "UI local path")
 	versionFlag := fs.BoolP("version", "v", false, "get version number")
 
 	// parse flags
@@ -46,6 +47,7 @@ func main() {
 	viper.Set("revision", version.REVISION)
 	viper.MustBindEnv("LOGIN_CLIENTID")
 	viper.MustBindEnv("LOGIN_SECRETS")
+	viper.AutomaticEnv()
 	// load config from file
 	if _, fileErr := os.Stat(filepath.Join(viper.GetString("config-path"), viper.GetString("config"))); fileErr == nil {
 		viper.SetConfigName(strings.Split(viper.GetString("config"), ".")[0])

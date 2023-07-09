@@ -16,7 +16,7 @@ import (
 // @Success 302
 // @Router /web/login [get]
 func (s *Server) login(c *gin.Context) {
-	c.Redirect(http.StatusMovedPermanently, s.oauth.authorize(c))
+	c.Redirect(http.StatusTemporaryRedirect, s.oauth.authorize(c))
 }
 
 // LoginCallBack godoc
@@ -40,5 +40,5 @@ func (s *Server) loginCallback(c *gin.Context) {
 	if err != nil {
 		redirectUrl = "/"
 	}
-	c.Redirect(http.StatusMovedPermanently, redirectUrl)
+	c.Redirect(http.StatusTemporaryRedirect, redirectUrl)
 }

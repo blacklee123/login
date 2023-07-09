@@ -27,6 +27,7 @@ type Config struct {
 	Host                  string        `mapstructure:"host"`
 	Port                  string        `mapstructure:"port"`
 	Hostname              string        `mapstructure:"hostname"`
+	UIPath                string        `mapstructure:"ui-path"`
 }
 
 type Server struct {
@@ -49,9 +50,11 @@ func NewServer(config *Config, logger *zap.Logger) (*Server, error) {
 }
 
 func (s *Server) registerHandlers() {
+	s.router.Static("/assets", "./assets")
+	s.router.GET("/", s.indexHandler)
 	s.router.GET("/web/login", s.login)
 	s.router.GET("/web/login/callback", s.loginCallback)
-	s.router.GET("/web/login/logout", s.logout)
+	s.router.GET("/web/logout", s.logout)
 	s.router.GET("/healthz", s.healthzHandler)
 	s.router.GET("/readyz", s.readyzHandler)
 	s.router.POST("/readyz/enable", s.enableReadyHandler)
@@ -65,6 +68,8 @@ func (s *Server) registerMiddlewares() {
 }
 
 func (s *Server) ListenAndServe() (*http.Server, *int32, *int32) {
+	s.router.Delims("[[", "]]")
+	s.router.LoadHTMLGlob("templates/*")
 	s.registerMiddlewares()
 	s.registerHandlers()
 	s.handler = s.router

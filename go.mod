@@ -3,7 +3,7 @@ module github.com/qaq-public/login
 go 1.19
 
 require (
-	github.com/BlackLee123/handlers_gin v0.0.0-20221116155505-d4f937b81318
+	github.com/BlackLee123/handlers_gin v1.0.1
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/golang-jwt/jwt v3.2.2+incompatible

@@ -1,12 +1,8 @@
 package api
 
 import (
-	"fmt"
 	"net/http"
-	"net/url"
 	"strings"
-
-	"github.com/spf13/viper"
 
 	"github.com/gin-gonic/gin"
 )
@@ -21,5 +17,5 @@ func (s *Server) logout(c *gin.Context) {
 	host := c.Request.Host
 	host = strings.Split(host, ":")[0]
 	s.oauth.DelJWTCookie(c, host)
-	c.Redirect(http.StatusMovedPermanently, fmt.Sprintf(viper.GetString("github.url.authorize"), url.QueryEscape(next)))
+	c.Redirect(http.StatusTemporaryRedirect, next)
 }

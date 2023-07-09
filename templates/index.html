@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./assets/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSO</title>
+  </header>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+  <body>
+    <div id="app" v-cloak>
+      <p v-if="fullname!= ''">
+        Login Succeed: <button type="button" @click="logout">LogOut</button>
+      </p>
+      <p v-else>Loging ···</p>
+      <ul>
+        <li>fullname: {{ fullname }}</li>
+        <li>email: {{ email }}</li>
+        <li>userid: {{ userid }}</li>
+        <li>avatr: <img style="height: 20px" :src="avatar" /></li>
+      </ul>
+    </div>
+  </body>
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+        "js-cookie": "https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import { createApp } from 'vue'
+    import App from '/assets/app.js'
+    var app = createApp(App)
+    app.config.compilerOptions.whitespace = 'preserve'
+    app.use(window.antd)
+    app.mount('#app')
+  </script>
+</html>

@@ -100,8 +100,10 @@ func (o *OAuth) authorize(c *gin.Context) string {
 		Path:     "/web/login/callback",
 		RawQuery: fmt.Sprintf("next=%s", next),
 	}
-	o.logger.Info("authorize_url", zap.String("authorize_url", nextUrl.String()))
-	return fmt.Sprintf(o.authorize_url, o.clientid, url.QueryEscape(nextUrl.String()))
+	authorize_url := fmt.Sprintf(o.authorize_url, o.clientid, url.QueryEscape(nextUrl.String()))
+	o.logger.Info("authorize_url", zap.String("authorize_url", authorize_url))
+
+	return authorize_url
 }
 
 func (o *OAuth) Code2Token(code string) string {

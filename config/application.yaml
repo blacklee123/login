@@ -26,6 +26,8 @@ rsa:
     0q9YTbyOpfQXaKAhlIvfveF9b7CXgCLuOeA3VopN/ZeNe68=
     -----END RSA PRIVATE KEY-----
 
+LOGIN_CLIENTID: 51d596c5372076485969
+LOGIN_SECRETS: 4b2d844338151d1f85afccb749ad5076021e93db
 github:
   url:
     authorize: https://github.com/login/oauth/authorize?client_id=%s&redirect_uri=%s
