@@ -19,7 +19,7 @@ LOGIN_SECRETS=你的应用secrets
 github app callback url设置为 yourhost:yourhost/web/login/callback  
 启动后访问：yourhost:yourport 即可触发登录流程
 ## Usage with docker
-`docker run -d --name login -p 7777:7777 --env LOGIN_CLIENTID=YOUR_LOGIN_CLIENTID --env LOGIN_SECRETS=YOUR_LOGIN_SECRETS blacklee123/login`
+`docker run -d --name login -p 7777:7777 --env LOGIN_CLIENTID=YOUR_LOGIN_CLIENTID --env LOGIN_SECRETS=YOUR_LOGIN_SECRETS blacklee123/login-github`
 
 ## Deploy with nginx
 
