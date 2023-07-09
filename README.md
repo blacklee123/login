@@ -16,6 +16,8 @@ openssl rsa -in private_key.pem -pubout -out public_key.pem
 LOGIN_CLIENTID=你的应用id
 LOGIN_SECRETS=你的应用secrets
 ```
+github app callback url设置为 yourhost:yourhost/web/login/callback  
+启动后访问：yourhost:yourport 即可触发登录流程
 
 ## Deploy with nginx
 
